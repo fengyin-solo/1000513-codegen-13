@@ -28,6 +28,13 @@ class EntryPayload(BaseModel):
     remark: str | None = None
 
 
+class ApplyPayload(BaseModel):
+    """按关联任务套用验收模板时提交的参数。"""
+
+    template_id: int = Field(..., description="验收项目模板 ID（须为生效版本）")
+    task_code: str = Field(..., description="关联任务编号，仅待验收任务可套用")
+
+
 
 class SectionEntry(BaseModel):
     """线路区段明细结构。"""
