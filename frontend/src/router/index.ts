@@ -17,6 +17,7 @@ const Patrol = () => import('@/views/patrol/index.vue')
 const Window = () => import('@/views/window/index.vue')
 const Alarm = () => import('@/views/alarm/index.vue')
 const Verify = () => import('@/views/verify/index.vue')
+const Template = () => import('@/views/template/index.vue')
 const Shift = () => import('@/views/shift/index.vue')
 const Assess = () => import('@/views/assess/index.vue')
 
@@ -40,6 +41,7 @@ const router = createRouter({
     { path: '/window', name: 'window', component: Window },
     { path: '/alarm', name: 'alarm', component: Alarm },
     { path: '/verify', name: 'verify', component: Verify },
+    { path: '/template', name: 'template', component: Template },
     { path: '/shift', name: 'shift', component: Shift },
     { path: '/assess', name: 'assess', component: Assess },
   ],

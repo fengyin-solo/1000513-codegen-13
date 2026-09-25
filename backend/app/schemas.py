@@ -21,6 +21,15 @@ class ActionResult(BaseModel):
     entry: dict[str, Any] | None = None
 
 
+class ApplyResult(BaseModel):
+    """模板套用结果：成功与失败的条目分开返回，失败条目写清缺失原因。"""
+
+    ok: bool
+    message: str
+    applied: list[dict[str, Any]] = Field(default_factory=list)
+    failed: list[dict[str, Any]] = Field(default_factory=list)
+
+
 class EntryPayload(BaseModel):
     """登记或修改一条业务记录时提交的字段集合。"""
 
@@ -220,6 +229,17 @@ class VerifyEntry(BaseModel):
     field_5: str | None = None  # 验收人员
     field_6: str | None = None  # 验收日期
     field_7: str | None = None  # 验收状态
+    field_8: str | None = None  # 设备编号
+
+class TemplateEntry(BaseModel):
+    """验收项目模板明细结构。"""
+
+    field_0: str | None = None  # 模板编号
+    field_1: str | None = None  # 模板名称
+    field_2: str | None = None  # 版本号
+    field_3: str | None = None  # 条目数
+    field_4: str | None = None  # 生效日期
+    field_5: str | None = None  # 模板状态
 
 class ShiftEntry(BaseModel):
     """交接记录明细结构。"""
